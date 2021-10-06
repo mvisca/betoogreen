@@ -1,0 +1,148 @@
+#navbarDropdown {
+  cursor: pointer;
+}
+
+.navbar-lewagon {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rem 6rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+  z-index: 20;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+}
+
+.dropdown-menu-right {
+  border-radius: 16px;
+}
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+
+.nav-link {
+    display: block;
+    padding: 1.5rem 0.5rem;
+    position: relative;
+    cursor: pointer;
+}
+
+.nav-link:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 4px;
+  background: $primary-gradient;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover:after {
+  width: 100%;
+}
+
+.navbar-btg {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+
+#black-font {
+  color: black !important;
+  text-decoration: none;
+}
+
+.white-font {
+  color: white;
+}
+
+.btn-gradient a {
+  text-decoration: none;
+  color: white;
+  margin-top: 45px;
+}
+
+#cart-border:hover {
+  border-style: hidden;
+}
+
+
+
+/* Search element */
+*{
+  box-sizing: border-box;
+}
+
+.search-box{
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+}
+.input-search{
+  height: 40px;
+  width: 40px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  outline: none;
+  border-radius: 25px;
+  transition: all .5s ease-in-out;
+  padding-right: 40px;
+  border-style: none;
+  color: grey;
+}
+.input-search::placeholder{
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 100;
+  padding-left: 12px;
+}
+.btn-search{
+  width: 50px;
+  height: 40px;
+  border-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  color:#ffffff ;
+  background-color:transparent;
+  pointer-events: painted;
+}
+.btn-search:focus ~ .input-search{
+  width: 300px;
+  border-radius: 16px;
+  background-color: white;
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+
+}
+.input-search:focus{
+  width: 300px;
+  border-radius: 16px;
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+
+}
+
+
+/* Yellow circle */
+.fa-circle {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 4px;
+  margin: auto 8px;
+  color: #FDCB6E;
+}

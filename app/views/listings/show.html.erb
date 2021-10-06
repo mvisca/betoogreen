@@ -1,0 +1,117 @@
+<div class="container">
+  <div class="row">
+    <div class="col-9">
+      <div class="top-section">
+        <div class="main-container w-100">
+
+          <div class= "image-container">
+            <% 5.times do |index|  %>
+              <% unless @listing.product.photos[index].nil? %>
+                <a href="<%= cl_image_path @listing.product.photos[index].key %>" data-lightbox="productimages" class="example-image-link PHOTO-<%= index + 1 %>">
+                  <img src="<%= cl_image_path @listing.product.photos[index].key %>">
+                </a>
+              <% else %>
+                <div class="PHOTO-<%= index + 1 %> empty">
+                </div>
+              <% end %>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="text-container">
+        <div class="row1 mb-5">
+          <p><strong>Description:</p></strong>
+          <p> <%= @listing.product.description %></p>
+          <p><strong>Impact:</p></strong>
+          <p><%= @listing.product.impact %></p>
+
+        </div>
+        <div class="row2 mb-5">
+          <p><strong> Material: </strong></p>
+          <p><%= @listing.product.material %></p>
+          <p><strong>Origin: </strong></p>
+          <p><%= @listing.product.origin %></p>
+          <p><strong>Stock: </strong></p>
+          <p><%= number_with_delimiter(@listing.stock, delimiter:".")%></p>
+          <p><strong>End date: </strong></p>
+          <p><%= @listing.end_date.strftime("%A, %B %dth %Y") %></p>
+        </div>
+      </div>
+
+      <div class="col-10 pl-0 mt-5">
+        <h1 class="ml-0 mt-5"><strong>Collective buy</strong></h1>
+        <% if  @listing.quantity_pending == 0%>
+          <p> <strong> SOLD OUT </strong></p>
+        <% else %>
+          <p> <strong>Total current quantity sold: </strong> <%= number_with_delimiter(@listing.quantity_sold, delimiter:".") %>  </p>
+        <% end %>
+        <% @listing.discount_bars.each do |bar| %>
+        <div class="discount col-12 ml-0">
+          <div class="initialandnext">
+            <p><strong>Initial price:  </strong><%= money_without_cents(bar[:price])%> € </p>
+            <p><strong>Next price:  </strong><%= money_without_cents(bar[:next_price])%> €</p>
+          </div>
+            <div class="rating-progress-bars py-3">
+              <div class="progress">
+                <div class="progress-bar gradient-prog" style="width: <%= (bar[:sold] / bar[:limit].to_f ) * 100 %>%;"><%= ((bar[:sold] / bar[:limit].to_f ) * 100).round(0) %> %</div>
+              </div>
+            </div>
+            <p class="soldP "><strong>Sold: </strong><%= number_with_delimiter(bar[:sold], delimiter:".") %> <strong>out of</strong>  <%= number_with_delimiter(bar[:limit], delimiter:".") %> units</p>
+            <p class="ifP">▷ If <%= number_with_delimiter(bar[:limit], delimiter:".") %> units are sold, the price will be <%= money_without_cents(number_with_delimiter(bar[:next_price], delimiter:".")) %>€ per unit</p>
+        </div>
+        <% end %>
+      </div>
+
+  </div>
+
+    <div class="side col-3 justify-content-center" style="text-align: left">
+      <p><strong> <%= @listing.product.name.upcase %></strong></p>
+      <p class="sidep side-price-stock"><%=money_without_cents(@listing.current_price)%> €</p>
+      <p class="sidep side-price-stock">
+      <% if @listing.quantity_pending == 0%>
+          <p> <strong> SOLD OUT </strong></p>
+      <% else %>
+          <p class="sidep">Stock: <%=  number_with_delimiter(@listing.quantity_pending, delimiter:".") %></p>
+
+          <%= form_tag new_listing_purchase_path(@listing), method: :get do %>
+          <%= number_field_tag 'quantity', 0, class:"round-input" %>
+          <button href="#" class="btn-gradient mt-3 text-center">Buy now</button>
+      <% end %>
+      </p>
+        <% end %>
+    </div>
+</div>
+
+<div class="reviews">
+  <h5><strong>Buyers reviews</strong> </h5>
+
+
+
+  <% if @listing.product.reviews.any? %>
+    <% @listing.product.reviews.each do |review| %>
+
+      <div class="rev-box align-items-center">
+        <p class="rev-name"><strong> <%= review.purchase.user.email.split('@')[0].capitalize %></strong></p>
+      </div>
+
+      <div class="rev-cont">
+        <% (review.rating).times do %>
+          <i class="fas fa-leaf green-leaf"></i>
+        <% end %>
+
+        <% (5 - (review.rating)).times do %>
+          <i class="fas fa-leaf grey-leaf"></i>
+        <% end %>
+      </div>
+
+      <div class="rev-cont">
+        <p> <%= review.content %> </p>
+      </div>
+
+    <% end %>
+  <% else %>
+    <p>This products doesn't have any review yet.</p>
+  <% end %>
+</div>

@@ -1,0 +1,24 @@
+// Import your components CSS files here.
+@import "alert";
+@import "avatar";
+@import "navbar";
+@import "button";
+@import "search-bar";
+@import "footer";
+@import "card";
+@import "banner-green";
+@import "banner";
+@import "side_bar";
+@import "form";
+@import "dashboard_table";
+@import "dashboard_content";
+@import "pages/home";
+@import "carousel";
+@import "lightbox-style";
+@import "reviews";
+@import "flatpickr";
+
+body {
+  padding-top: 72px;
+  background-color: white;
+}

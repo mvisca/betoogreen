@@ -1,0 +1,335 @@
+.mango {
+    font-size: 12px;
+    color: gray;
+    font-style: italic;
+
+}
+.side-price-stock{
+font-size: 22px;
+}
+
+
+.round-input{
+  border-radius:16px;
+  border: 1px solid grey;
+  padding-left: 16px;
+  width: 52%;
+  height: 3rem;
+  &:focus {
+    outline: none;
+  }
+
+}
+
+
+.ifP{
+  font-size: 13px;
+  font-style: italic;
+}
+
+.progress-bar{
+  background: linear-gradient(253.58deg, #00997B 1.55%, #6BE38D 66.84%);
+}
+
+.progress{
+  height: 42px;
+  border-radius: 16px;
+}
+
+.initialandnext {
+
+display: flex;
+justify-content: space-between;
+
+}
+
+
+.soldP {
+ text-align: center;
+
+}
+
+.discount {
+  margin: 40px;
+  padding: 20px;
+  border-radius: 16px 16px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+
+.main-container {
+left: 70px;
+  margin: 40px 0px;
+
+}
+
+
+.top-section {
+  display: flex;
+}
+
+
+
+h1{
+margin: 15px;
+}
+
+.side {
+  align-self: flex-start;
+  position: sticky;
+  top: 123px;
+  width: 24vw;;
+  right: 56px;
+  margin-top: 40px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  border-radius: 16px;
+    }
+
+.image-container {
+  display: grid;
+  grid-template-columns:: 1.5fr 0.8fr 0.7fr;
+
+  grid-template-rows: 1fr 1fr;
+  gap: 5px;
+  grid-template-areas:
+    "PHOTO-1 PHOTO-2 PHOTO-3"
+    "PHOTO-1 PHOTO-4 PHOTO-5";
+  height: 500px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.sidep {
+
+    color: grey;
+}
+
+.text-container{
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "row1 row2";
+
+}
+
+.row2{
+  margin-left: 100px;
+}
+
+.PHOTO-1 {
+  grid-area: PHOTO-1;
+  max-height: 500px;
+
+  // padding: 5px;
+  height: 100%;
+  .empty {
+    border-style: solid;
+    border-width: thin;
+    border-color: rgba(196, 196, 196, 0.67);
+    background-image: url("iconphoto.png");
+    background-size: cover;
+    opacity: 0.5;
+    background-position: center;
+  }
+  img {
+    border-radius: 16px 0px 0px 16px;
+  }
+
+}
+.PHOTO-2 {
+  grid-area: PHOTO-2;
+  max-height: 250px;
+  // padding: 5px;
+  height: 100%;
+  &.empty {
+    border-style: solid;
+    border-width: thin;
+    border-color: rgba(196, 196, 196, 0.67);
+    background-image: url("iconphoto.png");
+    background-size: cover;
+    opacity: 0.5;
+    background-position: center;
+  }
+}
+.PHOTO-3 {
+  grid-area: PHOTO-3;
+  max-height: 250px;
+  // padding: 5px;
+  height: 100%;
+  img {
+    border-radius: 0px 16px 0px 0px;
+  }
+   &.empty {
+    border-style: solid;
+    border-width: thin;
+    border-radius: 0px 16px 0px 0px;
+    border-color: rgba(196, 196, 196, 0.67);
+    background-image: url("iconphoto.png");
+    background-size: cover;
+    opacity: 0.5;
+    background-position: center;
+  }
+
+}
+.PHOTO-4 {
+ grid-area: PHOTO-4;
+ max-height: 250px;
+ height: 100%;
+ &.empty {
+    border-style: solid;
+    border-width: thin;
+    border-color: rgba(196, 196, 196, 0.67);
+    background-image: url("iconphoto.png");
+    background-size: cover;
+    opacity: 0.5;
+    background-position: center;
+  }
+}
+.PHOTO-5 {
+  grid-area: PHOTO-5;
+  max-height: 250px;
+  // padding: 5px;
+  height: 100%;
+  img {
+    border-radius: 0px 0px 16px 0px;
+    }
+  &.empty {
+    border-style: solid;
+    border-width: thin;
+    border-radius: 0px 0px 16px 0px;
+    border-color: rgba(196, 196, 196, 0.67);
+    background-image: url("iconphoto.png");
+    background-size: cover;
+    opacity: 0.5;
+    background-position: center;
+  }
+}
+
+// Style to display images when user create the product:
+.PHOTO-1-P {
+  grid-area: PHOTO-1;
+  height: 100%;
+  border-style: solid;
+  border-width: thin;
+  border-color: rgba(196, 196, 196, 0.67);
+  border-radius: 16px 0px 0px 16px;
+
+}
+
+.PHOTO-2-P {
+  grid-area: PHOTO-2;
+  // padding: 5px;
+  height: 100%;
+  border-style: solid;
+  border-width: thin;
+  border-color: rgba(196, 196, 196, 0.67);
+}
+.PHOTO-3-P {
+  grid-area: PHOTO-3;
+  // padding: 5px;
+  height: 100%;
+  img {
+    border-radius: 0px 16px 0px 0px;
+  }
+
+  border-style: solid;
+  border-width: thin;
+  border-radius: 0px 16px 0px 0px;
+  border-color: rgba(196, 196, 196, 0.67);
+}
+.PHOTO-4-P {
+ grid-area: PHOTO-4;
+ height: 100%;
+    border-style: solid;
+    border-width: thin;
+    border-color: rgba(196, 196, 196, 0.67);
+}
+.PHOTO-5-P {
+  grid-area: PHOTO-5;
+  // padding: 5px;
+  height: 100%;
+  img {
+    border-radius: 0px 0px 16px 0px;
+    }
+  border-style: solid;
+  border-width: thin;
+  border-radius: 0px 0px 16px 0px;
+  border-color: rgba(196, 196, 196, 0.67);
+
+}
+
+
+
+.banner-green {
+  animation: move 5s linear infinite;
+}
+
+@keyframes move {
+  0% {
+    background-position: 0px 0px;
+  }
+
+  25% {
+    background-position: 5px 0px;
+  }
+
+  75% {
+    background-position: -5px 0px;
+  }
+  100% {
+    background-position: 0px 0px;
+  }
+}
+
+.banner-bg {
+  width: 105%;
+  overflow: hidden;
+  animation: sidemove 15s linear infinite;
+}
+
+
+
+.banner-title span:before {
+  animation: updownmove 2s linear infinite;
+}
+
+
+@keyframes updownmove {
+  0% {
+    transform: translate(0%, 0%);
+  }
+
+  50% {
+    transform: translate(0%, 15%);
+  }
+
+
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
+
+@keyframes sidemove {
+  0% {
+    transform: translate(0%, 0%);
+  }
+
+  50% {
+    transform: translate(4%, 0%);
+  }
+
+
+  100% {
+    transform: translate(0%, 0%);
+  }
+}

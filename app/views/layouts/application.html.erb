@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BeTooGreen</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+
+    <script src="https://kit.fontawesome.com/e851e5b568.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://img.icons8.com/cotton/64/000000/tree.png">
+
+
+
+  </head>
+
+  <body>
+    <div class="page-container">
+      <div class="navbar-container"> <%= render 'shared/navbar' %></div>
+    <%= render 'shared/flashes' %>
+      <div class="content-container"><%= yield %></div>
+
+      <div class="footer-container"><%= render 'shared/footer' unless params[:controller] == "dashboards" %></div>
+
+    </div>
+
+  </body>
+</html>

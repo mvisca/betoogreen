@@ -1,0 +1,103 @@
+.btn-gradient {
+  background: linear-gradient(253.58deg, #6BE38D 1.55%, #00997B 66.84%);
+  position: relative;
+  border: none;
+  display: inline-block;
+  padding: 16px 24px;
+  z-index: 10;
+  color: white;
+  text-decoration: none;
+  border-radius: 46px;
+  &:hover {
+    color:white;
+    text-decoration: none;
+  }
+}
+  .btn-gradient:after {
+    background: linear-gradient(253.58deg, #00997B 1.55%, #6BE38D 66.84%);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    z-index: -10;
+    transition: opacity 0.5s;
+    border-radius: 46px;
+  }
+.btn-gradient:hover:after {
+  opacity: 1;
+}
+
+.btn-pages-green {
+  margin: 1px;
+  font-size: 16px;
+  padding: 16px;
+  border-radius: 46%;
+  background: $primary-gradient;
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration:none;
+    color: white;
+  }
+}
+
+.btn-pages-white {
+    border: solid;
+    border-width: thin;
+    border-color: #5C5C5C;
+    color: #5C5C5C;
+    margin: 1px;
+    font-size: 16px;
+    padding: 16px;
+    border-radius: 100px;
+    background: white;
+    text-decoration: none;
+    width: 108px;
+    height: 60px;
+
+
+  &:hover {
+    text-decoration:none;
+    background: $primary-gradient;
+    color: white;
+    border: none;
+
+  }
+}
+
+
+
+.btn-white {
+  border: solid;
+  border-width: thin;
+  border-color: #5C5C5C;
+  color: #5C5C5C;
+  padding: 12px 24px;
+  border-radius: 100px;
+  background: white;
+  text-decoration: none;
+ }
+
+ .button-purchase {
+  width: 25%;
+  padding: 16px;
+  align-items: center;
+ }
+
+
+ .buttons-modal {
+    display: flex;
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    flex-direction: column;
+    padding: 32px;
+    a {
+      padding: 16px;
+    }
+ }

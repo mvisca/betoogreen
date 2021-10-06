@@ -1,0 +1,87 @@
+<%= render 'shared/banner-green'%>
+
+
+<%= render 'shared/search-bar'%>
+
+<div class="container col-8 mt-5 mb-5 d-flex justify-content-between align-items-end">
+  <p>Showing 1–8 of <%= Listing.count * 2 %> results</p>
+  <div>
+    <button class="btn-white">Filter <i class="fas fa-angle-down"></i></button>
+    <button class="btn-white">Sort by <i class="fas fa-angle-down"></i></button>
+  </div>
+</div>
+
+<div class="container col-8 d-flex flex-wrap">
+  <% @listings.each do |listing| %>
+      <div class="card-product m-3">
+        <div class="card-img">
+          <%= link_to listing_path(listing), data: {turbolinks: false } do %>
+            <% if listing.product.photos.empty? %>
+              <%= image_tag "https://www.refbd.com/wp-content/uploads/2020/04/eco-cup-2.jpg" %>
+            <% else %>
+              <%= cl_image_tag listing.product.photos.first.key %>
+            <% end %>
+
+
+          <% end %>
+          <div>
+            <a class="quick-view-title" data-toggle="modal" data-target="#listing_<%= listing.id %>">Quick view</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-top-elements">
+            <p>UNTIL THE <%= listing.end_date %></p>
+            <p class="font-weight-bold"><%= listing.current_price %>€</p>
+          </div>
+          <div class="product-info">
+            <h5 class="mb-3"><strong><%= listing.product.name %></strong></h5>
+            <h6><%= listing.product.description %></h6>
+          </div>
+          <div class="card-bottom-elements">
+            <%= link_to "Join collective buy", new_listing_purchase_path(listing.id) %>
+            <div>
+              <%= link_to "Read more", listing_path(listing), data: {turbolinks: false } %>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="listing_<%= listing.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered " role="document">
+          <div class="modal-content">
+            <div style="border:none;margin: 16px 16px 0px 0px;">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </div>
+            <div class="modal-body d-flex justify-items-center" style="padding:0 1rem;">
+              <% if listing.product.photos.empty? %>
+                <%= image_tag "https://www.refbd.com/wp-content/uploads/2020/04/eco-cup-2.jpg", class: "modal-img" %>
+              <% else %>
+                <%= cl_image_tag listing.product.photos.first.key, class: "modal-img"%>
+              <% end %>
+
+
+
+              <div class="m-3">
+                <h5 style="color:grey"><%= listing.product.name %></h5>
+                <p style="color:grey"><%= listing.current_price %> €</p>
+                <div style="margin-top:66px;">
+                <p style="color:grey">Quantity</p>
+                  <%= form_tag new_listing_purchase_path(listing), method: :get do %>
+                  <%= number_field_tag 'quantity', 0, class:"round-input", style: "color:grey" %>
+                </div>
+                <div class="buttons-modal">
+                  <button type="submit" class="btn-gradient">Buy now</button>
+                  <% end %>
+                  <%= link_to "Read more", listing_path(listing), data: {turbolinks: false } %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>
+
+<%= render 'shared/buttons-pages' %>

@@ -1,0 +1,26 @@
+<%= image_tag 'background-yellow-square.png', class: "banner-bg"  %>
+<h1 class="text-center mt-5"><strong><span class="text-gradient">Checkout summary</span></strong></h1>
+<div class="container col-6 mt-5" data-controller="price">
+  <div class="form-container pt-3 text-center">
+    <p> <%= @purchase.listing.product.name %> - <%= @purchase.quantity %> units</p>
+    <p data-price-target="price" data-amount="<%= @purchase.listing.current_price %>"> Total price: <strong><%= (@purchase.listing.current_price)*(@purchase.quantity) %>€</strong></p>
+
+      <div class="form-group mt-1 p-2">        <hr>
+        <div><%= cl_image_tag @purchase.listing.product.photos.first.key, width: '40%' %></div>
+      </div>
+        <button id="pay" class="btn-gradient m-3 px-5">Pay</button>
+      <script src="https://js.stripe.com/v3/"></script>
+      <script>
+        const paymentButton = document.getElementById('pay');
+        paymentButton.addEventListener('click', () => {
+          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+          stripe.redirectToCheckout({
+            sessionId: '<%= @purchase.checkout_session_id %>'
+          });
+        });
+      </script>
+      <p class="note pb-2">☞ Note: You'll be charge for the starting price and we'll refund any discount reached.</p>
+
+
+
+</div>
